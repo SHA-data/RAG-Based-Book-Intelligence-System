@@ -1,0 +1,57 @@
+{
+  "Test Book Upload": [
+    "Book Ingestion",
+    "Pipeline Testing",
+    "Metadata Preservation",
+    "Chunking Strategy",
+    "Citation Accuracy",
+    "Content Verification",
+    "Chapter Organization",
+    "Page Numbering",
+    "Text Analysis"
+  ],
+  "Second Test Book": [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Automation",
+    "Programming",
+    "Technology",
+    "Innovation",
+    "21st Century",
+    "Transformative Tech",
+    "Self Programming",
+    "Emerging Trends"
+  ],
+  "Artificial Intelligence": [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Human Intelligence",
+    "Problem-Solving",
+    "Language Understanding",
+    "Intelligent Machines",
+    "Transformative Technology",
+    "Machine Mind"
+  ],
+  "Lorem Ipsum": [
+    "Printing Industry",
+    "Typesetting",
+    "Dummy Text",
+    "Lorem Ipsum",
+    "Electronic Typesetting",
+    "Letraset Sheets",
+    "Desktop Publishing",
+    "Galley of Type",
+    "Specimen Book"
+  ],
+  "Pride & Prejudice": [
+    "Marriage",
+    "Social Class",
+    "Love",
+    "Family",
+    "Relationships",
+    "Society",
+    "Status",
+    "Morality",
+    "Gender Roles"
+  ]
+}

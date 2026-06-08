@@ -1,0 +1,9 @@
+[build]
+  # Specifying the subdirectory where the frontend Vite app lives
+  base = "frontend"
+  
+  # Command to build the React production bundle
+  command = "npm run build"
+  
+  # Directory where Vite outputs the compiled static assets
+  publish = "dist"
