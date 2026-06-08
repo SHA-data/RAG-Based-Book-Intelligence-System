@@ -1,22 +1,25 @@
 # RAG Book Knowledge Base
 
-Turn uploaded books into a searchable AI knowledge base. Upload PDFs, TXTs, or EPUBs and ask questions in plain language. Every answer includes exact source citations (book title, chapter, page).
+Turn uploaded books into a searchable AI knowledge base with an immersive 3D interface. Upload PDFs, TXTs, or EPUBs and ask questions in plain language. Every answer includes exact source citations (book title, chapter, page).
 
 ## Features
-
 - Upload books in PDF, TXT, or EPUB format
 - Automatic parsing, chunking, and embedding into a vector database
 - Natural language Q&A with grounded answers and source references
 - Query across multiple books simultaneously
 - Core concepts automatically extracted from incoming books
 - File-drop automation — drop a file into `uploads/` and ingestion runs automatically
-- OpenAPI docs auto-generated at `/docs`
+- View all indexed books with delete functionality
 
 ## Tech Stack
 
 | Layer | Technology |
 |---|---|
-| Backend API | FastAPI + Uvicorn |
+| **Frontend** | React + Vite |
+| 3D Rendering | React Three Fiber, Three.js, drei |
+| UI Animations | Framer Motion |
+| Icons | Lucide React |
+| **Backend API** | FastAPI + Uvicorn |
 | Vector store | ChromaDB (local, persistent) |
 | Embeddings | Google Gemini (`models/text-embedding-004`) |
 | LLM | Groq (`llama-3.3-70b-versatile`) |
@@ -26,19 +29,40 @@ Turn uploaded books into a searchable AI knowledge base. Upload PDFs, TXTs, or E
 
 ## Quick Start
 
+### Backend Setup
 We use `uv` for lightning fast dependencies and execution:
 
 ```bash
-git clone <your-repo-url>
+git clone <repo-url>
 cd rag-book-kb
 uv pip install -r requirements.txt
 cp .env.example .env   # add your GROQ_API_KEY and GEMINI_API_KEY
 uv run python main.py --watch
 ```
 
-Open http://localhost:8000/docs for interactive API docs.
+The backend API will start at `http://localhost:8000`. Open `http://localhost:8000/docs` for interactive API docs.
 
-## Interactive CLI Testing
+### Frontend Setup
+In a new terminal, navigate to the frontend directory:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+The 3D interactive UI will start at `http://localhost:5173`. Scroll through the 4 pages to upload books, query the knowledge base, manage your library, and view extracted concepts.
+
+## UI Experience
+
+The frontend features an immersive 3D scrollable interface with 4 main sections:
+
+1. **Book Upload** — Drop a file or select from your filesystem to ingest new books
+2. **Query Interface** — Ask natural language questions and receive answers with source citations
+3. **Oracle** — Interactive query results with typewriter animations showing source references
+4. **Library Management** — View all indexed books and manage your knowledge base
+
+Each section is represented as a 3D model with smooth scroll animations, lighting effects, and interactive controls. The UI is fully responsive and optimized for desktop viewing.
 
 We also include an interactive testing suite right in your terminal!
 ```bash
