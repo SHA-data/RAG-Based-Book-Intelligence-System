@@ -12,12 +12,12 @@ GROQ_MODEL = os.getenv('GROQ_MODEL', 'llama-3.3-70b-versatile')
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', '')
 GEMINI_EMBEDDING_MODEL = os.getenv('GEMINI_EMBEDDING_MODEL', 'models/gemini-embedding-2-preview')
 
-# Storge Paths
+# Storage Paths
 BASE_DIR = Path(__file__).resolve().parent.parent
 UPLOAD_DIR =  Path(os.getenv("UPLOAD_DIR", str(BASE_DIR / 'uploads')))
 CHROMA_PERSIST_DIR = Path(os.getenv("CHROMA_PERSIST_DIR", str(BASE_DIR/ "data" / "chroma")))
 
-# Creates the directory if it doesn't exist
+# Creates the books directory if it doesn't exist
 UPLOAD_DIR.mkdir(parents = True, exist_ok = True)
 
 # For chunking
