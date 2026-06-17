@@ -8,11 +8,13 @@ BASE_URL = "http://localhost:8000"
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+# For CAPITALIZED headings
 def print_header(title):
     print(f"\n{'=' * 50}")
     print(f" {title.upper()}")
     print(f"{'=' * 50}\n")
 
+# Checks whether the server is running properly 
 def check_health():
     try:
         r = httpx.get(f"{BASE_URL}/health")
@@ -23,6 +25,7 @@ def check_health():
     print("Cannot connect to the server. Please run 'uv run python main.py' in a separate terminal.")
     sys.exit(1)
 
+# Lists all books (if any)
 def list_books():
     print_header("Library")
     r = httpx.get(f"{BASE_URL}/books")
@@ -72,7 +75,7 @@ def query_books():
         print("Question too short.")
         return
 
-    # Ask if they want to filter
+    # Asks if the user want to filter
     filter_choice = input("Filter by specific book? (y/N): ").strip().lower()
     book_ids = []
     if filter_choice == 'y':
@@ -111,6 +114,7 @@ def query_books():
     except Exception as e:
             print(f"\nRequest failed: {e}")
 
+# Central theme of the book (if needed) 
 def view_concepts():
     print_header("Core Concepts")
     try:
