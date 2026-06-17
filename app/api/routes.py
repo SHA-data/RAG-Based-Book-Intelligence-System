@@ -64,7 +64,7 @@ async def root():
         }
     }
 
-# The UploadResponse and BookListResponse models define the exactly structures the JSON responses will have
+# The UploadResponse and BookListResponse models define the exact structures that the JSON responses will have
 class UploadResponse(BaseModel):
     book_title: str = Field(..., description="The title used to identify this book in the system")
     pages_parsed: int = Field(..., description="Number of pages extracted from the file")
@@ -117,7 +117,7 @@ class QueryResponse(BaseModel):
     tags = ['Ingestion']
 )
 
-# Upload the file which will then be parsed, chunked, embedded and stored in the vector database automatically
+# Uploads the file which will then be parsed, chunked, embedded and stored in the vector database automatically
 async def upload_book(file: UploadFile = File(..., description = 'PDF, TXT or EPUB file'), book_title: str = Form(default = '', description = 'Display title. Defaults to filename')):
 
     # Checks the file extension
@@ -138,6 +138,7 @@ async def upload_book(file: UploadFile = File(..., description = 'PDF, TXT or EP
 
     if title in existing:
         raise HTTPException(status_code = 409, detail = f"A book titled '{title}' is already indexed in the knowledge base. Delete it first with DELETE /books/{title} if you want to re-upload.")
+    
     # Saves file to the uploads folder
     dest = UPLOAD_DIR / file.filename
 
