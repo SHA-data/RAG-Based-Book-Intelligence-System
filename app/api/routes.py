@@ -40,7 +40,7 @@ app = FastAPI(
     }
 )
 
-# Allow requests from any origin point
+# Allows requests from any origin point
 app.add_middleware(
     CORSMiddleware,
     allow_origins = ['*'],
